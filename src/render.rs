@@ -1,4 +1,4 @@
-use ammonia::Ammonia;
+use ammonia::{Ammonia, UrlRelative};
 use comrak;
 
 use util::CargoResult;
@@ -96,6 +96,7 @@ impl<'a> MarkdownRenderer<'a> {
             .collect();
         let html_sanitizer = Ammonia {
             link_rel: Some("nofollow noopener noreferrer"),
+            url_relative: UrlRelative::PassThrough,
             keep_cleaned_elements: true,
             tags: tags,
             tag_attributes: tag_attributes,
